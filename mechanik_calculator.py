@@ -236,7 +236,7 @@ class MechaikCalculator:
         self.curent_focal_param = self.focal_param
         self.curent_ext_param = self.ext_param
 
-        for theta in np.linspace(0, 360 * np.pi, self.calculations_steps):
+        for theta in np.linspace(0, 3600 * np.pi, self.calculations_steps):
             
             self.hiden_theta = (theta * np.pi) / 180.0
             theta = (theta * np.pi) / 180.0
@@ -248,7 +248,7 @@ class MechaikCalculator:
 
 if __name__ == "__main__":
 
-    sim_object = MechaikCalculator(calculations_steps=1000)
+    sim_object = MechaikCalculator(calculations_steps=100000)
     sim_object.run_simulation()
     sim_object.run_simulation(simulation_mode="indignant")
     sim_object.show_data()

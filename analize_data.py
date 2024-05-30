@@ -41,6 +41,14 @@ def show_data(data_collection):
 
     plt.show()
 
+    figh, axis = plt.subplots(ncols=3)
+    axis[0].plot(data_collection["S"], label="S", linestyle="--")
+    axis[1].plot(data_collection["T"], label="T", linestyle="--")
+    axis[2].plot(data_collection["W"], label="W", linestyle="--")
+    axis[0].legend(loc="upper left")
+    axis[1].legend(loc="upper left")
+    axis[2].legend(loc="upper left")
+
     H_apogee = 740 + 6371
     H_peregee = 350 + 6371
 
