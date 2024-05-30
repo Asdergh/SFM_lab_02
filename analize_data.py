@@ -25,19 +25,17 @@ def show_data(data_collection):
     need_params = ["ecc", "i", "omega", "p", "radius", "THETAparam", "sigma"]
     data_labels = [label for label in data_collection.keys()]
 
-    axis[0, 0].plot(data_collection[data_labels[0]], color="r", label=data_labels[0])
-    axis[0, 1].plot(data_collection[data_labels[1]], color="r", label=data_labels[1])
-    axis[0, 2].plot(data_collection[data_labels[2]], color="r", label=data_labels[2])
-    axis[1, 0].plot(data_collection[data_labels[3]], color="r", label=data_labels[3])
-    axis[1, 1].plot(data_collection[data_labels[4]], color="r", label=data_labels[4])
-    axis[1, 2].plot(data_collection[data_labels[-1]], color="r", label="Omega")
+    axis[0, 0].plot(data_collection[need_params[0]], color="r", label=need_params[0])
+    axis[0, 1].plot(data_collection[need_params[1]], color="r", label=need_params[1])
+    axis[0, 2].plot(data_collection[need_params[2]], color="r", label=need_params[2])
+    axis[1, 0].plot(data_collection[need_params[3]], color="r", label=need_params[3])
+    axis[1, 1].plot(data_collection[need_params[-1]], color="r", label="Omega")
 
     axis[0, 0].legend(loc="upper left")
     axis[0, 1].legend(loc="upper left")
     axis[0, 2].legend(loc="upper left")
     axis[1, 0].legend(loc="upper left")
     axis[1, 1].legend(loc="upper left")
-    axis[1, 2].legend(loc="upper left")
 
     plt.show()
 
@@ -64,22 +62,25 @@ def show_data(data_collection):
     ext_data = np.ones(len(data_collection[data_labels[0]])) * ext_param
     omega_data = np.ones(len(data_collection[data_labels[0]])) * 0
 
-    axis[0, 0].plot(ext_data, color="g", label="ecc")
-    axis[0, 1].plot(i_data, color="g", label="i")
-    axis[0, 2].plot(omega_data, color="g", label="omega")
-    axis[1, 0].plot(focal_data, color="g", label="focal")
-    axis[1, 1].plot(data_collection[data_labels[4]], color="g", label="radius")
-    axis[1, 2].plot(data_collection[data_labels[-1]], color="g", label="Omega")
+    axis[0, 0].plot(ext_data, color="g", label=need_params[0])
+    axis[0, 1].plot(i_data, color="g", label=need_params[1])
+    axis[0, 2].plot(omega_data, color="g", label=need_params[2])
+    axis[1, 0].plot(focal_data, color="g", label=need_params[3])
+    axis[1, 1].plot(data_collection[data_labels[-1]], color="g", label="Omega")
     
     axis[0, 0].legend(loc="upper left")
     axis[0, 1].legend(loc="upper left")
     axis[0, 2].legend(loc="upper left")
     axis[1, 0].legend(loc="upper left")
     axis[1, 1].legend(loc="upper left")
-    axis[1, 2].legend(loc="upper left")
     
     plt.show()
-    
+
+    fig, axis = plt.subplots(subplot_kw={'projection': 'polar'}, ncols=2)
+    axis[0].plot(data_collection["THETAparams"], data_collection["radius"], color="r")
+    axis[1].plot(data_collection["THETAparams"], data_collection["radius"], color="g")
+    plt.show()
+
 
 if __name__ == "__main__":
 
