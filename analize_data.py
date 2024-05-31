@@ -59,7 +59,7 @@ def show_data(data_collection):
     u_data = np.ones(len(data_collection[data_labels[0]])) * (70.0 * np.pi) / 180.0
     i_data = np.ones(len(data_collection[data_labels[0]])) * (37.1 * np.pi) / 180.0
     focal_data = np.ones(len(data_collection[data_labels[0]])) * focal_param
-    ext_data = np.ones(len(data_collection[data_labels[0]])) * ext_param
+    ext_data = np.zeros(len(data_collection[data_labels[0]])) * ext_param
     omega_data = np.ones(len(data_collection[data_labels[0]])) * 0
 
     axis[0, 0].plot(ext_data, color="g", label=need_params[0])
