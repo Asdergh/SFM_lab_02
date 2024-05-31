@@ -66,7 +66,7 @@ def show_data(data_collection):
     axis[0, 1].plot(i_data, color="g", label=need_params[1])
     axis[0, 2].plot(omega_data, color="g", label=need_params[2])
     axis[1, 0].plot(focal_data, color="g", label=need_params[3])
-    axis[1, 1].plot(data_collection[data_labels[-1]], color="g", label="Omega")
+    axis[1, 1].plot(Omega_data, color="g", label="Omega")
     
     axis[0, 0].legend(loc="upper left")
     axis[0, 1].legend(loc="upper left")
